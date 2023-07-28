@@ -21,6 +21,8 @@
             //TODO: adiconar validações para não cadastrar cpf ou emails iguais
 
             return pacienteRepository.save(paciente);
+
+
         }
 
         public List<Paciente> getAll(){
