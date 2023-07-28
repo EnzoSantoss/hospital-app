@@ -22,25 +22,25 @@ public class Paciente {
     private String sobrenome;
     private String cpf;
     private String email;
-    private LocalDate updateAt;
-    private  LocalDate deletedAt;
+    private LocalDate update_At;
+    private  LocalDate deleted_at;
 
     //Update constructor
-    public Paciente(String nome, String sobrenome, String cpf, String email, LocalDate updateAt) {
+    public Paciente(String nome, String sobrenome, String cpf, String email, LocalDate update_At) {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.cpf = cpf;
         this.email = email;
-        this.updateAt = updateAt;
+        this.update_At = update_At;
     }
 
     //Delete constructor
-    public Paciente(String nome, String sobrenome, String cpf, String email, LocalDate updateAt, LocalDate deletedAt) {
+    public Paciente(String nome, String sobrenome, String cpf, String email, LocalDate updateAt, LocalDate deleted_at) {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.cpf = cpf;
         this.email = email;
-        this.updateAt = updateAt;
-        this.deletedAt = deletedAt;
+        this.update_At = updateAt;
+        this.deleted_at = deleted_at;
     }
 }

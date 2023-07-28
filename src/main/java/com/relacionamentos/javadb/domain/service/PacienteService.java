@@ -3,7 +3,6 @@
     import com.relacionamentos.javadb.domain.entity.Paciente;
     import com.relacionamentos.javadb.domain.repository.PacienteRepository;
     import lombok.RequiredArgsConstructor;
-    import org.springframework.beans.factory.annotation.Autowired;
     import org.springframework.stereotype.Service;
     import org.springframework.transaction.annotation.Transactional;
 
@@ -43,7 +42,7 @@
             }
 
 
-            pacienteToDelete.setDeletedAt(LocalDate.now());
+            pacienteToDelete.setDeleted_at(LocalDate.now());
 
             return pacienteRepository.save(pacienteToDelete);
         }
