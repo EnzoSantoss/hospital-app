@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,11 +23,20 @@ public class Paciente {
     private String sobrenome;
     private String cpf;
     private String email;
-    private LocalDate update_At;
+    private LocalDateTime update_At;
     private  LocalDate deleted_at;
 
+
+//    //Create Constructor
+//    public Paciente(String nome, String sobrenome, String cpf, String email) {
+//        this.nome = nome;
+//        this.sobrenome = sobrenome;
+//        this.cpf = cpf;
+//        this.email = email;
+//    }
+
     //Update constructor
-    public Paciente(String nome, String sobrenome, String cpf, String email, LocalDate update_At) {
+    public Paciente(String nome, String sobrenome, String cpf, String email, LocalDateTime update_At) {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.cpf = cpf;
@@ -35,7 +45,7 @@ public class Paciente {
     }
 
     //Delete constructor
-    public Paciente(String nome, String sobrenome, String cpf, String email, LocalDate updateAt, LocalDate deleted_at) {
+    public Paciente(String nome, String sobrenome, String cpf, String email, LocalDateTime updateAt, LocalDate deleted_at) {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.cpf = cpf;

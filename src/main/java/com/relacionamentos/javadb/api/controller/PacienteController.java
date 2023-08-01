@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @RestController
@@ -33,6 +34,33 @@ public class PacienteController {
 
         return ResponseEntity.status(HttpStatus.OK).body(getAllPacientes);
 
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Paciente> getById(@PathVariable Integer id){
+
+        Optional<Paciente> paciente = pacienteService.getById(id);
+
+        if(paciente.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }else {
+            return ResponseEntity.status(HttpStatus.OK).body(paciente.get());
+        }
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Paciente> update (@PathVariable Integer id, @RequestBody Paciente paciente){
+
+        Paciente pacienteBombaPatch = pacienteService.update(id, paciente);
+
+        return ResponseEntity.status(HttpStatus.OK).body(pacienteBombaPatch);
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> delete(@PathVariable Integer id){
+
+        pacienteService.delete(id);
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 
 }

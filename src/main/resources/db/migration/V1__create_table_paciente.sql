@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS `javateste`.`paciente` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(255) NOT NULL,
   `sobrenome` VARCHAR(255) NOT NULL,
   `cpf` VARCHAR(45) NOT NULL,
