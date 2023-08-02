@@ -1,6 +1,9 @@
 package com.relacionamentos.javadb.api.controller;
 
 
+import com.relacionamentos.javadb.api.mapper.PacienteMapper;
+import com.relacionamentos.javadb.api.request.PacienteRequest;
+import com.relacionamentos.javadb.api.response.PacienteResponse;
 import com.relacionamentos.javadb.domain.entity.Paciente;
 import com.relacionamentos.javadb.domain.service.PacienteService;
 import lombok.RequiredArgsConstructor;
@@ -19,20 +22,25 @@ public class PacienteController {
     private final PacienteService pacienteService;
 
     @PostMapping()
-    public ResponseEntity<Paciente> create (@RequestBody Paciente paciente){
+    public ResponseEntity<PacienteResponse> create (@RequestBody PacienteRequest data){
 
-        System.out.println(paciente);
+        Paciente paciente = PacienteMapper.toPaciente(data);
+
         Paciente createPaciente = pacienteService.save(paciente);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(createPaciente);
+        PacienteResponse response = PacienteMapper.toPacienteResponse(createPaciente);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @GetMapping()
-    public ResponseEntity<List<Paciente>> getAll(){
+    public ResponseEntity<List<PacienteResponse>> getAll(){
 
         List<Paciente> getAllPacientes = pacienteService.getAll();
 
-        return ResponseEntity.status(HttpStatus.OK).body(getAllPacientes);
+        List<PacienteResponse> response = PacienteMapper.toPacienteResponseList(getAllPacientes);
+
+        return ResponseEntity.status(HttpStatus.OK).body(response);
 
     }
 
